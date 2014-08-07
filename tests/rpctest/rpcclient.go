@@ -9,9 +9,9 @@ import (
 	"log"
 	"net/rpc"
 
-	"code.google.com/p/protorpc"
-	"code.google.com/p/protorpc/service.pb"
 	"code.google.com/p/goprotobuf/proto"
+	"github.com/chai2010/protorpc"
+	"github.com/chai2010/protorpc/service.pb"
 )
 
 func main() {
