@@ -4,48 +4,6 @@
 1. Install CMake and VS2010(Windows)/gcc(Unix)
 2. cd `${protorpc_root}/protobuf` and build with cmake
 
-# Add Go's defer operator support
-
-Example:
-
-	#include <google/protobuf/stubs/defer.h>
-	
-	FILE* fp = fopen("foo.txt", "rt");
-	if(fp == NULL) return false;
-	defer([&](){ printf("fclose(fp)\n"); fclose(fp); });
-	
-	char* buf = new char[1024];
-	defer([&](){ printf("delete buf\n"); delete[] buf; });
-	
-	defer([](){ printf("defer a: %d\n", __LINE__); });
-	defer([](){ printf("defer a: %d\n", __LINE__); });
-	defer([](){ printf("defer a: %d\n", __LINE__); });
-	
-	{
-		defer([](){ printf("defer b: %d\n", __LINE__); });
-		defer([](){ printf("defer b: %d\n", __LINE__); });
-		defer([](){ printf("defer b: %d\n", __LINE__); });
-	}
-	
-	defer([](){
-		printf("defer c:\n");
-		for(int i = 0; i < 3; ++i) {
-			defer([&](){ defer([&](){
-				printf("\ti = %d: begin\n", i);
-				defer([&](){ printf("\ti = %d\n", i); });
-				printf("\ti = %d: end\n", i);
-			});});
-		}
-	});
-
-Reference:
-
-- [http://golang.org/doc/effective_go.html#defer](http://golang.org/doc/effective_go.html#defer)
-- [http://golang.org/ref/spec#Defer_statements](http://golang.org/ref/spec#Defer_statements)
-- [http://blog.korfuri.fr/post/go-defer-in-cpp/](http://blog.korfuri.fr/post/go-defer-in-cpp/)
-- [http://blog.korfuri.fr/attachments/go-defer-in-cpp/defer.hh](http://blog.korfuri.fr/attachments/go-defer-in-cpp/defer.hh)
-- [C++11 Features in VC10 and VC11](http://blogs.msdn.com/b/vcblog/archive/2011/09/12/10209291.aspx)
-
 # Add xml support (with `--cxx_out` option):
 
 New API for message:
@@ -200,5 +158,5 @@ At this point, clients can see a service `EchoService` with methods `EchoService
 
 # Other
 
-Please report bugs to <chaishushan{AT}gmail.com>.
+Please report bugs to <chaishushan@gmail.com>.
 Thanks!
