@@ -1,0 +1,36 @@
+// Copyright 2013 <chaishushan{AT}gmail.com>. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+package google.protobuf.xml;
+
+enum PbValueType {
+	PB_VALUE_TYPE_NULL = 0;
+	PB_VALUE_TYPE_BOOL = 1;
+	PB_VALUE_TYPE_INT = 2;
+}
+
+message PbMessage {
+	required bool b = 1;
+	required int32 i = 2;
+}
+
+message PbXmlTest {
+	required bool b = 1 [default = true];
+	required int32 i = 2 [default = 123];
+	required float f = 3;
+	required PbValueType e = 4 [default = PB_VALUE_TYPE_BOOL];
+	required PbMessage m = 5;
+
+	optional bool b1 = 11 [default = true];
+	optional int32 i1 = 12 [default = 456];
+	optional float f1 = 13;
+	optional PbValueType e1 = 14 [default = PB_VALUE_TYPE_INT];
+	optional PbMessage m1 = 15;
+
+	repeated bool bn = 21 ;
+	repeated int32 in = 22 ;
+	repeated float fn = 23;
+	repeated PbValueType en = 24;
+	repeated PbMessage mn = 25;
+}
