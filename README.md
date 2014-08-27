@@ -1,3 +1,8 @@
+Protobuf-RPC for C++
+====================
+
+Talks: [Go/C++语言Protobuf-RPC简介](http://go-talks.appspot.com/github.com/chai2010/talks/chai2010-protorpc-intro.slide)
+
 
 # Install
 
@@ -156,7 +161,8 @@ At this point, clients can see a service `EchoService` with methods `EchoService
 		return 0;
 	}
 
-# Other
+# BUGS
 
 Please report bugs to <chaishushan@gmail.com>.
+
 Thanks!
